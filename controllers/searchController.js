@@ -48,7 +48,7 @@ const searchModels = async (req, res) => {
           : {}),
       };
   
-      console.log("Refined Search Query:", JSON.stringify(searchQuery, null, 2));
+      // console.log("Refined Search Query:", JSON.stringify(searchQuery, null, 2));
   
       // Pagination parameters
       const skip = (parseInt(page) - 1) * parseInt(pageSize);

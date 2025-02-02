@@ -245,7 +245,7 @@ const getVisits = async (req, res) => {
   try {
     const { roles, _id } = req.user; // Extract user role and ID
     // console.log(req.user)
-    const { page = 1, limit = 10 } = req.query; // Pagination parameters with defaults
+    const { page , limit  } = req.query; // Pagination parameters with defaults
 
     // Define query based on roles
    
@@ -291,7 +291,7 @@ const getVisits = async (req, res) => {
         { path: "createdBy", select: "name email roles image" },
         { path: "assignedTo", select: "name email roles image" },  
        ],
-      sort: { createdAt: -1 },
+      sort: { _id: -1 },
     };
 
     // Fetch visits based on the query
@@ -407,6 +407,7 @@ const getVisits = async (req, res) => {
       }
     });
 
+    // console.log(DoctorVisitDate)
     res.status(200).json({
       message: "Visits fetched successfully",
       DoctorVisitDate,
